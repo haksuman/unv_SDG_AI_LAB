@@ -1,9 +1,8 @@
 import pandas as pd
 import requests
-from pathlib import Path
+from project_dir_helper import project_dir
 
 
-project_dir = str(Path(__file__).resolve().parents[2])
 
 
 # getting necessary data for creating links
@@ -45,6 +44,8 @@ for link in list_link:
 df_link_COs = pd.DataFrame(
     {'link': list_link, 'link_type': list_type_link, 'status': list_link_status})  # storing links and page type of COs
 df_link_COs.to_excel(project_dir+"/data/interim/output_links.xlsx")
+
+
 
 print("OK")
 
