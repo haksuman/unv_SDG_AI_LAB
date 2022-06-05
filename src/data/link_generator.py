@@ -1,9 +1,14 @@
 import pandas as pd
 import requests
+from pathlib import Path
+
+
+project_dir = str(Path(__file__).resolve().parents[2])
+
 
 # getting necessary data for creating links
-df_country_codes = pd.read_csv("codes_countries_COs.csv", index_col=0)
-df_link_templates = pd.read_excel("link_templates.xlsx")
+df_country_codes = pd.read_csv(project_dir+"/data/raw/codes_countries_COs.csv", index_col=0)
+df_link_templates = pd.read_excel(project_dir+"/data/raw/link_templates.xlsx")
 list_link = []  # storing links
 list_type_link = []  # storing types of link pages
 list_link_status = []
@@ -39,7 +44,7 @@ for link in list_link:
 
 df_link_COs = pd.DataFrame(
     {'link': list_link, 'link_type': list_type_link, 'status': list_link_status})  # storing links and page type of COs
-df_link_COs.to_excel('output.xlsx')
+df_link_COs.to_excel(project_dir+"/data/interim/output_links.xlsx")
 
 print("OK")
-a = 5
+

@@ -30,5 +30,5 @@ for item in path_doc.findAll('span', {'property': 'name'}):
     list_path_doc.append(item.string)
 
 print(list_doc_paragraphs)
-print("hello")
+print("completed")
 
