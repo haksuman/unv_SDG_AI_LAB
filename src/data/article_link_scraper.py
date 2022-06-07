@@ -38,7 +38,11 @@ for link_article_parent_page in df_link_COs["link"]:
     list_all_h4_text.extend(temp_list_h4_text)
 
 df_link_articles = pd.DataFrame(
-    {'parent_link': list_all_parent_link, 'link_type': list_all_h4_link, 'article_title': list_all_h4_text})
+    {'parent_link': list_all_parent_link, 'link_article': list_all_h4_link, 'article_title': list_all_h4_text})
+
+for index_article, row_article in df_link_articles.iterrows(): # this for loop is stands for solving a bug that generate blog link as article link
+    if row_article["parent_link"]==row_article["link_article"]:
+        df_link_articles.drop(index_article, axis=0, inplace=True)
 
 df_link_articles.to_excel(project_dir+"/data/interim/output_article_links.xlsx")
 
