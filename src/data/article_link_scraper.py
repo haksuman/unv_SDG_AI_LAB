@@ -4,6 +4,7 @@ import pandas as pd
 from project_dir_helper import project_dir
 import urllib.parse
 
+
 df_link_COs = pd.read_excel(project_dir + "/data/interim/output_links.xlsx", index_col=0)  # getting all generated links
 df_link_COs = df_link_COs.loc[df_link_COs['status'] == "200"].reset_index()  # keeping only working links
 

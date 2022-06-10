@@ -45,9 +45,6 @@ def get_article_data(article_link):
     # list_path_doc = list, post_date = str, doc_title =str, doc_paragraphs=str, list_label_content=list, keywords=str
 
 
-list_path_article, post_date, doc_title, str_prps_article, list_label_article, keywords_doc = get_article_data(
-    "https://www.bw.undp.org/content/botswana/en/home/presscenter/articles/2019/undp-playing-its-integrator-role-as-part-of-accelerating-sdgs-im.html")
 
-a = 5
 print("OK")
 # "https://www.gm.undp.org/content/gambia/en/home/blog/2020/undp-support-to-the-establishment-of-the-virtual-courts-in-respo.html" working link
