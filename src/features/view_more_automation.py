@@ -13,7 +13,6 @@ def func_view_more(page_link):
 
     view_more_btn_selector = '#generic-content > div > div > div > div > div > div.newsCentreList.section > div.card > div > a'
 
-    #view_more_button_Xpath = '//*[@id="generic-content"]' #/div/div/div/div/div/div[3]/div[3]/div/a'
     while True:
         try:
             view_more_button = driver.find_element_by_css_selector(view_more_btn_selector)
@@ -25,10 +24,13 @@ def func_view_more(page_link):
             break
 
     print("Complete")
+    html = driver.page_source
     time.sleep(1)
     driver.quit()
 
-func_view_more("https://www.et.undp.org/content/ethiopia/en/home/blog.html")
+    return html
+
+#func_view_more("https://www.et.undp.org/content/ethiopia/en/home/blog.html")
 
 # https://www.sz.undp.org/content/eswatini/en/home/blog.html view more link     #view more count 1
 # https://www.et.undp.org/content/ethiopia/en/home/blog.html    #view more count 2 working

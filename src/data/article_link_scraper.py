@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from project_dir_helper import project_dir
 import urllib.parse
+from src.features.view_more_automation import func_view_more
 
 
 df_link_COs = pd.read_excel(project_dir + "/data/interim/output_links.xlsx", index_col=0)  # getting all generated links
@@ -37,8 +38,9 @@ list_all_parent_link = []
 list_all_h4_link = []
 list_all_h4_text = []
 for link_article_parent_page in df_link_COs["link"]:
-    page = requests.get(link_article_parent_page)
-    soup = BeautifulSoup(page.content, 'html.parser')
+    html_src = func_view_more(link_article_parent_page)
+    #page = requests.get(link_article_parent_page)
+    soup = BeautifulSoup(html_src)
     temp_list_parent, temp_list_h4_link, temp_list_h4_text = get_h4_tag(link_article_parent_page)
     list_all_parent_link.extend(temp_list_parent)
     list_all_h4_link.extend(temp_list_h4_link)
