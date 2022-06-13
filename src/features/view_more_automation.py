@@ -16,16 +16,16 @@ def func_view_more(page_link):
     while True:
         try:
             view_more_button = driver.find_element_by_css_selector(view_more_btn_selector)
-            time.sleep(3)
+            time.sleep(5)
             view_more_button.click()
-            time.sleep(4)
+            time.sleep(7)
             print("Expanded")
         except Exception as e:
             break
 
     print("Complete")
     html = driver.page_source
-    time.sleep(1)
+    time.sleep(3)
     driver.quit()
 
     return html

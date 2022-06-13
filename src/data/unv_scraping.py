@@ -6,7 +6,7 @@ print("working")
 
 
 def get_article_data(article_link):
-    page = requests.get(article_link, headers={"User-Agent": "Firefox/12.0"})  # requesting and parsing with bs4
+    page = requests.get(article_link, headers={"User-Agent": "Firefox/5.0"})  # requesting and parsing with bs4
     soup = BeautifulSoup(page.content, 'html.parser')
     post_date = None
     keywords_doc = None
