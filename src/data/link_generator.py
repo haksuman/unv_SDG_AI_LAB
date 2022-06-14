@@ -1,7 +1,7 @@
 import pandas as pd
 import requests
 from project_dir_helper import project_dir
-
+from src.features.project_functions import get_url_status
 
 
 
@@ -25,14 +25,6 @@ for index_link, row_link in df_link_templates.iterrows():  # iteration to create
 # list_link = list_link[0:10] # for reducing data size
 # list_type_link = list_type_link[0:10]
 
-
-def get_url_status(url):  # checks status for each url in list urls
-    try:
-        r = requests.get(url)
-        temp_status = str(r.status_code)
-    except Exception as e:
-        temp_status = "Failed to connect"
-    return temp_status
 
 
 for link in list_link:

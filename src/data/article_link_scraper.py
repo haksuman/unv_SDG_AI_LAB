@@ -4,18 +4,12 @@ import pandas as pd
 from project_dir_helper import project_dir
 import urllib.parse
 from src.features.view_more_automation import func_view_more
+from src.features.project_functions import get_url_status
 
 
 df_link_COs = pd.read_excel(project_dir + "/data/interim/output_links.xlsx", index_col=0)  # getting all generated links
 df_link_COs = df_link_COs.loc[df_link_COs['status'] == "200"].reset_index()  # keeping only working links
 
-def get_url_status(url):  # checks status for each url in list urls
-    try:
-        r = requests.get(url)
-        temp_status = str(r.status_code)
-    except Exception as e:
-        temp_status = "Failed to connect"
-    return temp_status
 
 def get_h4_tag(link_page):
     h4_link_list = []

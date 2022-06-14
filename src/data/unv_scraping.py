@@ -6,7 +6,14 @@ print("working")
 
 
 def get_article_data(article_link):
-    page = requests.get(article_link, headers={"User-Agent": "Firefox/5.0"})  # requesting and parsing with bs4
+    MAX_RETRIES = 20
+    session = requests.Session()
+    adapter = requests.adapters.HTTPAdapter(max_retries=MAX_RETRIES)
+    session.mount('https://', adapter)
+    session.mount('http://', adapter)
+
+    page = session.get(article_link)
+                       #headers={'User-Agent': 'Mozilla/5.0'}, timeout=250)  # requesting and parsing with bs4
     soup = BeautifulSoup(page.content, 'html.parser')
     post_date = None
     keywords_doc = None
