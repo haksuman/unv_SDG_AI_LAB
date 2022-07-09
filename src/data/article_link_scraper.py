@@ -33,7 +33,6 @@ list_all_h4_link = []
 list_all_h4_text = []
 for link_article_parent_page in df_link_COs["link"]:
     html_src = func_view_more(link_article_parent_page)
-    #page = requests.get(link_article_parent_page)
     soup = BeautifulSoup(html_src)
     temp_list_parent, temp_list_h4_link, temp_list_h4_text = get_h4_tag(link_article_parent_page)
     list_all_parent_link.extend(temp_list_parent)
