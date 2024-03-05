@@ -9,13 +9,13 @@ awscli
 flake8
 python-dotenv>=0.5.1
 
-requests~=2.27.1
+requests~=2.31.0
 bs4~=0.0.1
 beautifulsoup4~=4.11.1
 pandas~=1.4.2
-pip~=22.1.2
+pip~=23.3
 wheel~=0.37.1
-setuptools~=58.1.0
+setuptools~=65.5.1
 docutils~=0.16
 selenium~=4.2.0
-cryptography~=41.0.4
+cryptography~=42.0.0
